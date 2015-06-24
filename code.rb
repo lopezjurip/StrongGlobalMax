@@ -1,8 +1,7 @@
 class Array
   def median
-    sorted = self.sort
-    mid = (sorted.length - 1) / 2.0
-    (sorted[mid.floor] + sorted[mid.ceil]) / 2.0
+    mid = (self.length - 1) / 2.0
+    (self[mid.floor] + self[mid.ceil]) / 2.0
   end
 end
 
@@ -24,10 +23,18 @@ def top(array, &block)
 end
 
 
-array = [1, 2, 4, 5, 10, 7, 5, 2, 1, 0]
+arrays = [
+    [1, 2, 4, 5, 10, 7, 5, 2, 1, 0],
+    [100, 90, 80, 10],
+    [0, 0.1, 0.2, 0.3, 0.4, 0.5],
+    [42]
+]
+
 function = proc do |x|
     x
 end
 
-result = top(array, &function)
-puts result
+arrays.each do |array|
+    result = top(array, &function)
+    puts result
+end
